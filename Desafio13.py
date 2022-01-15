@@ -1,0 +1,5 @@
+preço = float(input('Preço do produto? R$'))
+avista = preço - (preço*10/100)
+prazo = preço + (preço*8/100)
+print('Valor do produto:R${:.2f}. À vista com desconto de 10% fica R${:.2f}.'.format(preço, avista))
+print('No cartão em até 12x, fica de R${:.2f}.'.format(prazo))
