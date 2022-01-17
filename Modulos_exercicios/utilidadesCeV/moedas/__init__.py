@@ -1,66 +1,89 @@
-def metade(n, conv=True):
+def metade(n=0, conv=True):
     """
     -> Função: dividir (n) pela metade
     :param n: numero à ser tratado
     :return: metade de (n)
     """
-    if conv:
-        return conversor(n / 2)
+    if n is int:
+        resposta = int(n) / 2
     else:
-        return n / 2
+        resposta = float(n) / 2
+    if conv:
+        return conversor(resposta)
+    else:
+        return resposta
 
 
-def dobro(n, conv=True):
+def dobro(n=0, conv=True):
     """
     -> Função: Dobrar (n)
     :param n: Número à ser tratado
     :return: Dobro de (n)
     """
-    if conv:
-        return conversor(n * 2)
+    if n is int:
+        num = int(n)
     else:
-        return n * 2
+        num = float(n)
+    resposta = num * 2
+    if conv:
+        return conversor(resposta)
+    else:
+        return resposta
 
 
-def aumentar(n, p=0, conv=True):
+def aumentar(n=0, p=0, conv=True):
     """
     -> Função: Aumentar (n) pela porcentagem (p) indicada
     :param n: Número à ser tratado
     :param p: valor da porcentagem
     :return: Valor da porcentagem de (n)
     """
-    porcentagem = ((p/100) * n)
+    if n is int:
+        num = int(n)
+    else:
+        num = float(n)
+    porcentagem = ((p/100) * num)
+    resposta = num + porcentagem
     if conv:
-        return conversor(n + porcentagem)
+        return conversor(resposta)
     else:    
-        return n + porcentagem
+        return resposta
 
 
-def diminuir(n, p=0, conv=True):
+def diminuir(n=0, p=0, conv=True):
     """
     -> Função: Reduzir (n) pela porcetagem (p) indicada.
     :param n: Número à ser tratado
     :param p: Valor da porcentagem
     :return: Valor da redução de (n) por (p)
     """
-    porcentagem = ((p/100) * n)
+    if n is int:
+        num = int(n)
+    else:
+        num = float(n)
+    porcentagem = ((p/100) * num)
+    resposta = num - porcentagem
     if conv:
-        return conversor(n - porcentagem)
+        return conversor(resposta)
     else:    
-        return n - porcentagem
+        return resposta
     
 
 def conversor(n=0, moedas='R$'):
-    return f'{moedas}{n:.2f}'
+    if n is int:
+        num = int(n)
+    else:
+        num = float(n)
+    return f'{moedas}{num:.2f}'
 
 
-def resumo(numero, p1, p2):
+def resumo(numero=0, p1=0, p2=0):
     print('===' * 20)
-    print(f'{"Resumo do valor":^60}')
+    print(f'{"Resumo do valor"}'.center(60))
     print('===' * 20)
-    print(f'Preço analisado: {conversor(numero):>43}')
-    print(f'Dobro do preço: {dobro(numero):>44}')
-    print(f'Metade do preço: {metade(numero):>43}')
-    print(f'{p1}% de aumento: {aumentar(numero, p1):>44}')
-    print(f'{p2}% de redução: {diminuir(numero, p2):>44}')
+    print(f'Preço analisado: \t{conversor(numero)}')
+    print(f'Dobro do preço: \t{dobro(numero)}')
+    print(f'Metade do preço: \t{metade(numero)}')
+    print(f'{p1}% de aumento: \t{aumentar(numero, p1)}')
+    print(f'{p2}% de redução: \t{diminuir(numero, p2)}')
     print(f'===' * 20)
